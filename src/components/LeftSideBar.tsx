@@ -17,10 +17,10 @@ const LeftSideBar = () => {
                     const Icon = item.Icon;
                     const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
                     return (
-                        <Link href={item.href} key={item.href} className={`h-[40px] text-white flex items-center justify-between gap-3 cursor-pointer md:w-fit lg:min-w-[250px] ${isActive ? "text-[#1ABC9C]" : "text-white"}`}>
-                            <div className='flex items-center gap-2 text-[15px] lg:text-[18px]'>
+                        <Link href={item.href} key={item.href} className='h-[40px] text-white flex items-center justify-between gap-3 cursor-pointer md:w-fit lg:min-w-[250px]'>
+                            <div className={`flex items-center gap-2 text-[15px] lg:text-[18px] ${isActive ? "text-[#1ABC9C]" : "text-white"}`}>
                                 <Icon />
-                                <span className=''>{item.title}</span>
+                                <span>{item.title}</span>
                             </div>
                             {isActive && <div className='hidden lg:flex h-[25px] w-[2px] bg-[#1ABC9C]' />}
                         </Link>

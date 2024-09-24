@@ -12,7 +12,7 @@ const StudentRegistrationPage = () => {
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 items-center py-10 space-y-7'>
                 <div className='flex flex-col items-center justify-center'>
-                    <Image src="" alt="" width={250} height={250} className='h-[60px] lg:h-[100px] w-[60px] lg:w-[100px] bg-[#D9D9D9] border-[2px] border-yellow-500 rounded-full' />
+                    <Image src="https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg" alt="" width={250} height={250} className='h-[60px] lg:h-[100px] w-[60px] lg:w-[100px] bg-[#D9D9D9] border-[2px] border-yellow-500 rounded-full object-cover' />
                     <button className='text-[#F39C12] cursor-pointer mt-3'>Upload new image</button>
                 </div>
                 <div className='grid grid-cols-2 space-y-5 items-center pl-5'>
