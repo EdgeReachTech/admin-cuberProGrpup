@@ -5,10 +5,10 @@ import MobileSidebar from '@/components/mobileSidebar';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className='flex pb-10'>
+        <div className='flex'>
             <LeftSideBar />
             <MobileSidebar />
-            <div className='w-full'>
+            <div className='w-full pb-10'>
                 <Navbar />
                 {children}
             </div>
