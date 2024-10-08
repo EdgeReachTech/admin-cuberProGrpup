@@ -1,6 +1,5 @@
 import React from 'react'
 import LeftSideBar from '@/components/LeftSideBar'
-import Navbar from '@/components/Navbar';
 import MobileSidebar from '@/components/mobileSidebar';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -9,7 +8,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <LeftSideBar />
             <MobileSidebar />
             <div className='w-full pb-10'>
-                <Navbar />
                 {children}
             </div>
         </div>

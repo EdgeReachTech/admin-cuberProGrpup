@@ -19,8 +19,8 @@ export type IconBottomType = {
 };
 
 export const iconsTop: IconType[] = [
-    { Icon: FaChartBar, title: "Dashboard", href: "/" },
-    { Icon: FaUserEdit, title: "Student Registration", href: "/student_registration" },
+    { Icon: FaChartBar, title: "Payment", href: "/" },
+    { Icon: FaUserEdit, title: "Students", href: "/students" },
     { Icon: HiSaveAs, title: "Our Blog", href: "/ourBlog" },
     { Icon: FaDiagramProject, title: "Project", href: "/project" },
     { Icon: HiUsers, title: "Team", href: "/team" },
@@ -28,5 +28,5 @@ export const iconsTop: IconType[] = [
 
 export const iconsBottom: IconBottomType[] = [
     { Icon: IoLogOut, title: "Logout" },
-    { Icon: FaMoon, title: "Toggle Dark Mode" },
+    // { Icon: FaMoon, title: "Toggle Dark Mode" },
 ];
