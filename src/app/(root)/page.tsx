@@ -1,7 +1,9 @@
+'use client'
+import withAdminAuth from '@/components/withAdminAuth';
 import React from 'react'
 import { GiPayMoney } from "react-icons/gi";
 
-const HomePPage = () => {
+const HomePage = () => {
   return (
     <div>
       <div className='p-10'>
@@ -31,4 +33,4 @@ const HomePPage = () => {
   )
 }
 
-export default HomePPage
+export default withAdminAuth(HomePage)

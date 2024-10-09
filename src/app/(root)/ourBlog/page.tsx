@@ -6,6 +6,7 @@ import { BiPlus } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
+import withAdminAuth from "@/components/withAdminAuth";
 
 const OurBlogPage = () => {
   const [blogs, setBlogs] = useState<BlogsObj[]>([]);
@@ -110,4 +111,4 @@ const OurBlogPage = () => {
   );
 };
 
-export default OurBlogPage;
+export default withAdminAuth( OurBlogPage);

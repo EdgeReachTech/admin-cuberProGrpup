@@ -6,6 +6,7 @@ import { BiPlus } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
+import withAdminAuth from "@/components/withAdminAuth";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState<ProjectObj[]>([]);
@@ -112,4 +113,4 @@ const ProjectPage = () => {
   );
 };
 
-export default ProjectPage;
+export default withAdminAuth(ProjectPage);

@@ -1,3 +1,5 @@
+'use client'
+import withAdminAuth from '@/components/withAdminAuth'
 import Image from 'next/image'
 import React from 'react'
 
@@ -46,4 +48,4 @@ const StudentRegistrationPage = () => {
     )
 }
 
-export default StudentRegistrationPage
+export default withAdminAuth(StudentRegistrationPage)

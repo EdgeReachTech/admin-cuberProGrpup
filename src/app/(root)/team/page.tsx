@@ -5,6 +5,7 @@ import axios from "axios";
 import { BiPlus, BiLeftArrow } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { API_BASE_URL } from "@/api/api";
+import withAdminAuth from "@/components/withAdminAuth";
 
 
 
@@ -429,4 +430,4 @@ const TeamPage: React.FC = () => {
   );
 };
 
-export default TeamPage;
+export default withAdminAuth(TeamPage);
