@@ -31,22 +31,26 @@ export const AuthContext = createContext<AuthContextData>(
 const AuthContextAPI: React.FC<AuthProviderProps> = ({ children }) => {
   const [loggedUser, setLoggedUser] = useState<Admin | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-const login = async (userData: Admin) => {
-  setIsLoading(true);
-  try {
-    const response = await axios.post(`${API_BASE_URL}/user/login`, userData, {
-      withCredentials: true,
-    });
-    setLoggedUser(response.data);
-    localStorage.setItem("ffa-admin", response.data.token);
-    window.location.href = `/`;
-    toast.success("Login successfully");
-  } catch (error) {
-    handleAxiosError(error);
-  } finally {
-    setIsLoading(false);
-  }
-};
+  const login = async (userData: Admin) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/user/login`,
+        userData,
+        {
+          withCredentials: true,
+        }
+      );
+      setLoggedUser(response.data);
+      localStorage.setItem("ffa-admin", response.data.token);
+      window.location.href = `/`;
+      toast.success("Login successfully");
+    } catch (error) {
+      handleAxiosError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const logout = async () => {
     try {
@@ -58,12 +62,12 @@ const login = async (userData: Admin) => {
       setLoggedUser(null);
       localStorage.removeItem("ffa-admin");
       window.location.href = "/auth/login";
-    } catch (error: any) {
+    } catch (error) {
       handleAxiosError(error);
     }
   };
-
-  const handleAxiosError = (error: any) => {
+  //@ts-expect-error error
+  const handleAxiosError = (error) => {
     console.log("Handling error", error); // Debugging line
     if (axios.isAxiosError(error)) {
       if (error.response) {

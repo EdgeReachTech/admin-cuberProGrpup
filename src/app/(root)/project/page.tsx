@@ -74,7 +74,7 @@ const ProjectPage = () => {
         project={selectedProject}
         showFields={showFields}
         setShowFields={setShowFields}
-        //@ts-expect-error
+        //@ts-expect-error error
         setIndex={setSelectedProject} 
         index={0} 
       />

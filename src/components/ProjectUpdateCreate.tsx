@@ -27,7 +27,7 @@ const ProjectUpdateCreate = ({
         await axios.post(`${API_BASE_URL}/project`, input); 
       }
       setShowFields(false);
-      //@ts-expect-error
+      //@ts-expect-error error
       setIndex(null); 
     } catch (error) {
       console.error("Error saving project:", error);

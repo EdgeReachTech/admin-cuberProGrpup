@@ -5,7 +5,7 @@ import { FaDiagramProject } from "react-icons/fa6";
 import { HiUsers } from "react-icons/hi2";
 
 import { IoLogOut } from "react-icons/io5";
-import { FaMoon } from "react-icons/fa";
+
 
 export type IconType = {
     Icon: React.FC;

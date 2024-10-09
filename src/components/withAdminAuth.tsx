@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import { FaSpinner } from "react-icons/fa";
 
 const withAdminAuth = <P extends object>(WrappedComponent: React.FC) => {
-  const AuthHOC: React.FC<P> = (props) => {
+  const AuthHOC: React.FC<P> = () => {
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    // const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
       const checkAuth = async () => {
@@ -15,8 +15,9 @@ const withAdminAuth = <P extends object>(WrappedComponent: React.FC) => {
           setLoading(false);
         } catch (error) {
           toast.error('logged out ')
-          setError("Unauthorized");
+          // setError("Unauthorized");
           // window.location.href = "/login";
+          console.log(error)
         }
       };
 

@@ -12,17 +12,16 @@ const Page = () => {
   };
   const handleSendEmail = async () => {
    try {
-    if(email==''|| !email.includes("@gmail.com")){
-        toast.error('enter valid email')
-        return
-    }
-         setIsLoading(true)
+     if (email == "" || !email.includes("@gmail.com")) {
+       toast.error("enter valid email");
+       return;
+     }
+     setIsLoading(true);
      const response = await axios.post(`${API_BASE_URL}/user/forgot-password`, {
        email: email,
      });
-     toast.success(response.data.message)
-  
-   } catch (error:any) {
+     toast.success(response.data.message);
+   } catch (error) {
     if(axios.isAxiosError(error) && error.response)
     {
   toast.error(error.response.data.message )
@@ -30,7 +29,7 @@ const Page = () => {
     else{
         toast.error('failed! try again')
     }
-    console.log(error.message)
+    // console.log(error.message)
    }
    finally{
     setIsLoading(false)
