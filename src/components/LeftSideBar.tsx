@@ -6,6 +6,9 @@ import React from 'react'
 
 const LeftSideBar = () => {
     const pathname = usePathname();
+     if (pathname.startsWith(`/auth`)) {
+       return <></>;
+     }
     return (
         <div className='hidden md:flex flex-col bg-[#1B396E] min-h-screen min-w-fit p-5 lg:p-[20px_5px_20px_20px] justify-between overflow-y-auto'>
             <div>
@@ -30,6 +33,8 @@ const LeftSideBar = () => {
             <div>
                 {iconsBottom.map((item) => {
                     const Icon = item.Icon;
+                   
+                    
                     return (
                         <button key={item.title} className="h-[40px] text-white flex items-center justify-between gap-3 cursor-pointer md:w-fit lg:min-w-[250px]">
                             <div className='flex items-center gap-2 text-[15px] lg:text-[18px]'>

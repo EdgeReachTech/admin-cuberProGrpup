@@ -57,7 +57,7 @@ const login = async (userData: Admin) => {
       // );
       setLoggedUser(null);
       localStorage.removeItem("ffa-admin");
-      window.location.href = "/login";
+      window.location.href = "/auth/login";
     } catch (error: any) {
       handleAxiosError(error);
     }

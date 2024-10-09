@@ -37,8 +37,7 @@ const Page = () => {
    }
   };
   return (
-    <main className="flex h-screen  flex-wrap  content-center  ">
-        <a href="/" className="p-2 bg-blue-700 fixed top-3 left-4 text-white">back home</a>
+    <main className="flex h-screen  flex-wrap  content-center">
             <h2 className="text-center w-full text-blue-500 ">Reset Password</h2>
       <div className="mx-auto shadow-lg  bg-slate-200 px-10 lg:w-1/3 py-20  rounded-md flex flex-col gap-6 items-center">
         <input
