@@ -69,7 +69,6 @@ const OurBlogPage = () => {
       />
 
       <BlogUpdateCreate
-        //@ts-expect-error erro
         blog={selectedBlog}
         showFields={showFields}
         setShowFields={setShowFields}

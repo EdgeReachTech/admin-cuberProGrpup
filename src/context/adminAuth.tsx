@@ -1,6 +1,5 @@
 import { API_BASE_URL } from "@/api/api";
 import axios from "axios";
-//@ts-expect-error error
 let loggedUserData = null; 
 
 export const fetchUser = async () => {
@@ -23,7 +22,7 @@ export const fetchUser = async () => {
   } catch (error) {
     console.error("Error fetching user data:", error);
     throw new Error(
-      //@ts-expect-error error
+   
       error.response?.data?.message || "Failed to fetch user data"
     );
   }
@@ -31,7 +30,7 @@ export const fetchUser = async () => {
 };
 
 export const getLoggedUserData = () => {
-  //@ts-expect-error error
+
 
   return loggedUserData;
 };

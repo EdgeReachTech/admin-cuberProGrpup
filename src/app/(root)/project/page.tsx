@@ -70,7 +70,6 @@ const ProjectPage = () => {
       />
 
       <ProjectUpdateCreate
-      //@ts-expect-error eror
         project={selectedProject}
         showFields={showFields}
         setShowFields={setShowFields}

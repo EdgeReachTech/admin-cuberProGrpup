@@ -29,7 +29,7 @@ const BlogUpdateCreate = ({
         await axios.post(`${API_BASE_URL}/blog`, input);
       }
       setShowFields(false);
-      //@ts-expect-error rrr
+  
       setIndex(null);
     } catch (error) {
       console.error("Error saving blog:", error);
