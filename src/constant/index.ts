@@ -19,7 +19,7 @@ export type IconBottomType = {
 };
 
 export const iconsTop: IconType[] = [
-    { Icon: FaChartBar, title: "Payment", href: "/" },
+    { Icon: FaChartBar, title: "Dashboard", href: "/" },
     { Icon: FaMessage, title: "message", href: "/message" },
     { Icon: FaUserEdit, title: "Students", href: "/students" },
     { Icon: HiSaveAs, title: "Our Blog", href: "/ourBlog" },

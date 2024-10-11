@@ -36,13 +36,24 @@ const LeftSideBar = () => {
                    
                     
                     return (
-                        <button key={item.title} className="h-[40px] text-white flex items-center justify-between gap-3 cursor-pointer md:w-fit lg:min-w-[250px]">
-                            <div className='flex items-center gap-2 text-[15px] lg:text-[18px]'>
-                                <Icon />
-                                <span className=''>{item.title}</span>
-                            </div>
-                        </button>
-                    )
+                      <button
+                        key={item.title}
+                        className="h-[40px] text-white flex items-center justify-between gap-3 cursor-pointer md:w-fit lg:min-w-[250px]"
+                        onClick={
+                          item.title === "Logout"
+                            ? () => {
+                          localStorage.removeItem("ffa-admin");
+                              window.location.href='/auth/login'
+                              }
+                            : undefined
+                        }
+                      >
+                        <div className="flex items-center gap-2 text-[15px] lg:text-[18px]">
+                          <Icon />
+                          <span>{item.title}</span>
+                        </div>
+                      </button>
+                    );
                 })}
             </div>
         </div>

@@ -13,7 +13,7 @@ interface Incident {
   location: number; // Assuming this represents a location ID or similar
   message: string;
   type: "incident" | "message"; // Incident or message
-  date: string; // Incident date
+  createdAt: string; // Incident date
   status: "read" | "unread"; // Status of the incident
 }
 
@@ -54,7 +54,7 @@ const IncidentRegistrationPage: React.FC = () => {
 
   // Group incidents by date
   const groupedIncidents = filteredIncidents.reduce((acc, incident) => {
-    const date = new Date(incident.date).toLocaleDateString(); // Format date
+    const date = new Date(incident.createdAt).toLocaleDateString(); // Format date
     if (!acc[date]) {
       acc[date] = [];
     }
@@ -107,15 +107,17 @@ const IncidentRegistrationPage: React.FC = () => {
               <th className="border-b border-gray-300 p-4">Location</th>
               <th className="border-b border-gray-300 p-4">Message</th>
               <th className="border-b border-gray-300 p-4">Type</th>
-              <th className="border-b border-gray-300 p-4">Status</th>
-              <th className="border-b border-gray-300 p-4">Date</th>
+        
             </tr>
           </thead>
           <tbody>
             {Object.entries(groupedIncidents).map(([date, incidents]) => (
               <React.Fragment key={date}>
                 <tr>
-                  <td colSpan={7} className="font-bold text-left p-2">
+                  <td
+                    colSpan={7}
+                    className="font-bold text-left p-2 bg-gray-100"
+                  >
                     {date}
                   </td>
                 </tr>
@@ -136,12 +138,8 @@ const IncidentRegistrationPage: React.FC = () => {
                     <td className="border-b border-gray-300 p-4">
                       {incident.type}
                     </td>
-                    <td className="border-b border-gray-300 p-4">
-                      {incident.status}
-                    </td>
-                    <td className="border-b border-gray-300 p-4">
-                      {new Date(incident.date).toLocaleDateString()}
-                    </td>
+                    
+                  
                   </tr>
                 ))}
               </React.Fragment>

@@ -33,7 +33,7 @@ const LoginForm = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
      
         <div className="text-center mb-6">
-          <img src="/logo.png" alt="Logo" className="w-24 h-24 mx-auto" />
+          <img src="/logo.png" alt="Logo" className="w-32 h-32 mx-auto" />
         </div>
 
    
