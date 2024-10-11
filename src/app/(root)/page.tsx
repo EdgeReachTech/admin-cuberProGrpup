@@ -25,7 +25,7 @@ interface Statistics {
 }
 
 const StatisticsPage: React.FC = () => {
-  const [statistics, setStatistics] = useState<Statistics[]>([]);
+  // const [statistics, setStatistics] = useState<Statistics[]>([]);
   const [mostVisitedPages, setMostVisitedPages] = useState<any[]>([]);
   const [languageData, setLanguageData] = useState<any[]>([]);
   const [themeData, setThemeData] = useState<any[]>([]);
@@ -38,7 +38,7 @@ const StatisticsPage: React.FC = () => {
           throw new Error("Network response was not ok");
         }
 
-        setStatistics(response.data);
+        // setStatistics(response.data);
         processStatistics(response.data);
       } catch (error) {
         console.error("Error fetching statistics data:", error);
