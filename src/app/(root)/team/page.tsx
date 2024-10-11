@@ -6,6 +6,7 @@ import { BiPlus, BiLeftArrow } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { API_BASE_URL } from "@/api/api";
 import withAdminAuth from "@/components/withAdminAuth";
+import { toast } from "react-toastify";
 
 
 
@@ -34,6 +35,7 @@ interface TeamMember {
   _id: string;
   name: string;
   role: string;
+  desc:string
   image: string;
   socialMedia: SocialMedia;
   education: Education[];
@@ -48,6 +50,7 @@ const TeamUpdateCreate: React.FC<{
 }> = ({ teamMember, onClose, onSave }) => {
   const [input, setInput] = useState<Omit<TeamMember, "_id">>({
     name: "",
+    desc:'',
     role: "",
     image: "",
     socialMedia: { instagram: "", twitter: "", linkedin: "", facebook: "" },
@@ -125,13 +128,18 @@ const TeamUpdateCreate: React.FC<{
     e.preventDefault();
     try {
       if (teamMember) {
-        await axios.put(`${API_BASE_URL}/team/${teamMember._id}`, input);
+        await axios.put(`${API_BASE_URL}/team/${teamMember._id}`, input)
+        toast.success('member updated successfull')
       } else {
         await axios.post(`${API_BASE_URL}/team`, input);
+        toast.success("member added successfull");
+
       }
       onSave();
       onClose();
+        toast.success('member updeted successfull')
     } catch (error) {
+        toast.error("failed to save member info");
       console.error("Error saving team member:", error);
     }
   };
@@ -159,6 +167,19 @@ const TeamUpdateCreate: React.FC<{
               type="text"
               name="name"
               value={input.name}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Description
+            </label>
+            <input
+              type="text"
+              name="desc"
+              value={input.desc}
               onChange={handleChange}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
