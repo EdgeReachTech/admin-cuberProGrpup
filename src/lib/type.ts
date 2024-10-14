@@ -65,3 +65,19 @@ export interface BlogUpdateCreateProps {
   setShowFields: React.Dispatch<React.SetStateAction<boolean>>;
   setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
+export interface TestimonyObj {
+  name: string;
+  role: string; // Changed to lowercase for consistency
+  company: string; // Fixed typo
+  content: string;
+  image: string;
+  _id: string;
+}
+export interface TetimonyUpdateCreateProps {
+  testimony?: TestimonyObj;
+  index: number;
+  showFields: boolean;
+  setShowFields: React.Dispatch<React.SetStateAction<boolean>>;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+

@@ -1,40 +1,34 @@
 "use client";
-import { ProjectUpdateCreateProps, TestimonyObj } from "@/lib/type"; // Adjusted import
+import { TetimonyUpdateCreateProps } from "@/lib/type"; // Adjusted import
 import { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
-import { toast } from "react-toastify";
 
-const ProjectUpdateCreate = ({
-  project,
+const TestimonyUpdateCreate = ({
+  testimony,
   showFields,
   setShowFields,
   setIndex,
-}: ProjectUpdateCreateProps) => {
+}: TetimonyUpdateCreateProps) => {
   const [input, setInput] = useState({
-    title: "",
+    name: "",
     role: "",
+    company: "",
     content: "",
     image: "",
-    name:"",
-    company:""
   });
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      if (project) {
-       
-        await axios.put(`${API_BASE_URL}/project/${project._id}`, input); 
-        toast.success('testimony updated')
+      if (testimony) {
+        await axios.put(`${API_BASE_URL}/testimony/${testimony._id}`, input);
       } else {
-        await axios.post(`${API_BASE_URL}/project`, input); 
-        toast.success("new testimony added");
-
+        await axios.post(`${API_BASE_URL}/testimony`, input);
       }
       setShowFields(false);
-      setIndex(null); 
+      setIndex(null);
     } catch (error) {
       console.error("Error saving project:", error);
     }
@@ -47,26 +41,24 @@ const ProjectUpdateCreate = ({
   };
 
   useEffect(() => {
-    if (project) {
+    if (testimony) {
       setInput({
-        title: project.title || "",
-        role: project.title || "",
-        company: project.title || "",
-        content: project.content || "",
-        image: project.image || "",
-        name: ""
+        role: testimony.role || "",
+        name: testimony.name || "",
+        company: testimony.company || "",
+        content: testimony.content || "",
+        image: testimony.image || "",
       });
     } else {
       setInput({
-        title: "",
+        role: "",
+        name: "",
+        company: "",
         content: "",
         image: "",
-        name: "",
-        company:"",
-        role:""
       });
     }
-  }, [project]);
+  }, [testimony]);
 
   return (
     <>
@@ -81,16 +73,16 @@ const ProjectUpdateCreate = ({
                 <BiLeftArrow /> Back
               </button>
               <h1 className="font-bold text-xl">
-                {project ? "Update Project" : "Create Project"}
+                {testimony ? "Update testimony" : "Create testimony"}
               </h1>
             </div>
             <form onSubmit={onSubmit} className="space-y-5">
               <div>
-                <label className="block font-bold mb-1"> Name</label>
+                <label className="block font-bold mb-1">Name</label>
                 <input
                   type="text"
-                  name="title"
-                  value={input.title}
+                  name="name"
+                  value={input.name}
                   required
                   onChange={handleOnChange}
                   className="block w-full px-3 py-2 bg-gray-200 rounded"
@@ -98,24 +90,24 @@ const ProjectUpdateCreate = ({
               </div>
               <div>
                 <label className="block font-bold mb-1">Role</label>
-                <textarea
-                  name="content"
-                  value={input.content}
+                <input
+                  type="text"
+                  name="role"
+                  value={input.role}
                   required
                   onChange={handleOnChange}
                   className="block w-full px-3 py-2 bg-gray-200 rounded"
-                  rows={4}
                 />
               </div>
               <div>
                 <label className="block font-bold mb-1">Company</label>
-                <textarea
-                  name="content"
-                  value={input.content}
+                <input
+                  type="text"
+                  name="company"
+                  value={input.company}
                   required
                   onChange={handleOnChange}
                   className="block w-full px-3 py-2 bg-gray-200 rounded"
-                  rows={4}
                 />
               </div>
               <div>
@@ -145,7 +137,7 @@ const ProjectUpdateCreate = ({
                 type="submit"
                 className="w-full bg-blue-800 text-white py-2 rounded"
               >
-                {project ? "Update" : "Create"}
+                {testimony ? "Update" : "Create"}
               </button>
             </form>
           </div>
@@ -155,4 +147,4 @@ const ProjectUpdateCreate = ({
   );
 };
 
-export default ProjectUpdateCreate;
+export default TestimonyUpdateCreate;
