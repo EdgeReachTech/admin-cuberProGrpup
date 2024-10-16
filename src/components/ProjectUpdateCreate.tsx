@@ -1,5 +1,5 @@
 "use client";
-import { ProjectUpdateCreateProps, TestimonyObj } from "@/lib/type"; // Adjusted import
+import { ProjectUpdateCreateProps } from "@/lib/type"; // Adjusted import
 import { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import axios from "axios";
@@ -17,24 +17,22 @@ const ProjectUpdateCreate = ({
     role: "",
     content: "",
     image: "",
-    name:"",
-    company:""
+    name: "",
+    company: "",
   });
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       if (project) {
-       
-        await axios.put(`${API_BASE_URL}/project/${project._id}`, input); 
-        toast.success('testimony updated')
+        await axios.put(`${API_BASE_URL}/project/${project._id}`, input);
+        toast.success("testimony updated");
       } else {
-        await axios.post(`${API_BASE_URL}/project`, input); 
+        await axios.post(`${API_BASE_URL}/project`, input);
         toast.success("new testimony added");
-
       }
       setShowFields(false);
-      setIndex(null); 
+      setIndex(null);
     } catch (error) {
       console.error("Error saving project:", error);
     }
@@ -54,7 +52,7 @@ const ProjectUpdateCreate = ({
         company: project.title || "",
         content: project.content || "",
         image: project.image || "",
-        name: ""
+        name: "",
       });
     } else {
       setInput({
@@ -62,8 +60,8 @@ const ProjectUpdateCreate = ({
         content: "",
         image: "",
         name: "",
-        company:"",
-        role:""
+        company: "",
+        role: "",
       });
     }
   }, [project]);

@@ -3,7 +3,6 @@ import { iconsBottom, iconsTop } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import withAdminAuth from "./withAdminAuth";
 
 const LeftSideBar = () => {
   const pathname = usePathname();
