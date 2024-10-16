@@ -73,4 +73,4 @@ const LeftSideBar = () => {
   );
 };
 
-export default withAdminAuth(LeftSideBar);
+export default LeftSideBar;
