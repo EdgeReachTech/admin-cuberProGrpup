@@ -97,8 +97,8 @@ const ProjectUpdateCreate = ({
               <div>
                 <label className="block font-bold mb-1">Role</label>
                 <textarea
-                  name="content"
-                  value={input.content}
+                  name="role"
+                  value={input.role}
                   required
                   onChange={handleOnChange}
                   className="block w-full px-3 py-2 bg-gray-200 rounded"
@@ -108,8 +108,8 @@ const ProjectUpdateCreate = ({
               <div>
                 <label className="block font-bold mb-1">Company</label>
                 <textarea
-                  name="content"
-                  value={input.content}
+                  name="company"
+                  value={input.company}
                   required
                   onChange={handleOnChange}
                   className="block w-full px-3 py-2 bg-gray-200 rounded"
